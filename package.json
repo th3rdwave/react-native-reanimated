@@ -26,8 +26,8 @@
     "type:generate:remove.tsx": "find ./lib -type f -name \"*.tsx\" -and -not -name \"*.d.ts\" -delete",
     "prepare": "husky install"
   },
-  "main": "lib/Animated.js",
-  "module": "lib/Animated",
+  "main": "src/Animated.js",
+  "module": "src/Animated",
   "react-native": "src/Animated",
   "source": "src/Animated",
   "types": "react-native-reanimated.d.ts",
