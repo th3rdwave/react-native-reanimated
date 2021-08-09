@@ -56,12 +56,6 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => "9.0", :tvos => "9.0" }
   s.source       = { :git => "https://github.com/software-mansion/react-native-reanimated.git", :tag => "#{s.version}" }
 
-  s.source_files = [
-    "ios/**/*.{mm,h,m}",
-    "Common/cpp/**/*.cpp",
-    "Common/cpp/headers/**/*.h"
-  ]
-
   s.preserve_paths = [
     "Common/cpp/hidden_headers/**"
   ]
@@ -73,7 +67,7 @@ Pod::Spec.new do |s|
   s.compiler_flags = folly_compiler_flags + ' ' + boost_compiler_flags
   s.xcconfig               = {
     "CLANG_CXX_LANGUAGE_STANDARD" => "c++14",
-    "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost\" \"$(PODS_ROOT)/boost-for-react-native\" \"$(PODS_ROOT)/glog\" \"$(PODS_ROOT)/#{folly_prefix}Folly\" \"${PODS_ROOT}/Headers/Public/React-hermes\" \"${PODS_ROOT}/Headers/Public/hermes-engine\"",
+    "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost\" \"$(PODS_ROOT)/boost-for-react-native\" \"$(PODS_ROOT)/glog\" \"$(PODS_ROOT)/#{folly_prefix}Folly\"",
                                "OTHER_CFLAGS" => "$(inherited)" + " " + folly_flags  }
 
   s.requires_arc = true
@@ -111,6 +105,31 @@ Pod::Spec.new do |s|
   end
 
   s.dependency "#{folly_prefix}Folly"
+
+  s.default_subspec = 'Default'
+
+  s.subspec "Core" do |ss|
+    ss.source_files = [
+      "ios/**/*.{mm,h,m}",
+      "Common/cpp/**/*.cpp",
+      "Common/cpp/headers/**/*.h"
+    ]
+  end
+
+  s.subspec "Default" do |ss|
+    ss.dependency "RNReanimated/Core"
+    ss.xcconfig = {
+      "GCC_PREPROCESSOR_DEFINITIONS" => ["RCT_USE_HERMES=0"]
+    }
+  end
+
+  s.subspec "Hermes" do |ss|
+    ss.dependency "RNReanimated/Core"
+    ss.dependency 'React-hermes'
+    ss.xcconfig = {
+      "GCC_PREPROCESSOR_DEFINITIONS" => ["RCT_USE_HERMES=1"]
+    }
+  end
 
 end
 

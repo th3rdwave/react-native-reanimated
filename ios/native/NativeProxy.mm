@@ -14,10 +14,8 @@
 #import "REAUIManager.h"
 #import "RNGestureHandlerStateManager.h"
 
-#if __has_include(<reacthermes/HermesExecutorFactory.h>)
+#if RCT_USE_HERMES
 #import <reacthermes/HermesExecutorFactory.h>
-#elif __has_include(<hermes/hermes.h>)
-#import <hermes/hermes.h>
 #else
 #import <jsi/JSCRuntime.h>
 #endif
@@ -127,9 +125,7 @@ std::shared_ptr<NativeReanimatedModule> createReanimatedModule(
     return val;
   };
 
-#if __has_include(<reacthermes/HermesExecutorFactory.h>)
-  std::shared_ptr<jsi::Runtime> animatedRuntime = facebook::hermes::makeHermesRuntime();
-#elif __has_include(<hermes/hermes.h>)
+#if RCT_USE_HERMES
   std::shared_ptr<jsi::Runtime> animatedRuntime = facebook::hermes::makeHermesRuntime();
 #else
   std::shared_ptr<jsi::Runtime> animatedRuntime = facebook::jsc::makeJSCRuntime();
@@ -158,7 +154,9 @@ std::shared_ptr<NativeReanimatedModule> createReanimatedModule(
     }];
   };
 
-  auto getCurrentTime = []() { return CACurrentMediaTime() * 1000; };
+  auto getCurrentTime = []() {
+    return CACurrentMediaTime() * 1000;
+  };
 
   // Layout Animations start
   REAUIManager *reaUiManagerNoCast = [bridge moduleForClass:[REAUIManager class]];
@@ -179,8 +177,7 @@ std::shared_ptr<NativeReanimatedModule> createReanimatedModule(
     }
   };
 
-  std::shared_ptr<LayoutAnimationsProxy> layoutAnimationsProxy =
-      std::make_shared<LayoutAnimationsProxy>(notifyAboutProgress, notifyAboutEnd);
+  std::shared_ptr<LayoutAnimationsProxy> layoutAnimationsProxy = std::make_shared<LayoutAnimationsProxy>(notifyAboutProgress, notifyAboutEnd);
   std::weak_ptr<jsi::Runtime> wrt = animatedRuntime;
   [animationsManager setAnimationStartingBlock:^(
                          NSNumber *_Nonnull tag, NSString *type, NSDictionary *_Nonnull values, NSNumber *depth) {
@@ -194,8 +191,7 @@ std::shared_ptr<NativeReanimatedModule> createReanimatedModule(
       yogaValues.setProperty(*rt, [key UTF8String], [value doubleValue]);
     }
 
-    jsi::Value layoutAnimationRepositoryAsValue =
-        rt->global().getPropertyAsObject(*rt, "global").getProperty(*rt, "LayoutAnimationRepository");
+    jsi::Value layoutAnimationRepositoryAsValue = rt->global().getPropertyAsObject(*rt, "global").getProperty(*rt, "LayoutAnimationRepository");
     if (!layoutAnimationRepositoryAsValue.isUndefined()) {
       jsi::Function startAnimationForTag =
           layoutAnimationRepositoryAsValue.getObject(*rt).getPropertyAsFunction(*rt, "startAnimationForTag");
@@ -208,7 +204,8 @@ std::shared_ptr<NativeReanimatedModule> createReanimatedModule(
     }
   }];
 
-  [animationsManager setRemovingConfigBlock:^(NSNumber *_Nonnull tag) {
+
+  [animationsManager setRemovingConfigBlock:^(NSNumber* _Nonnull tag) {
     std::shared_ptr<jsi::Runtime> rt = wrt.lock();
     if (wrt.expired()) {
       return;
