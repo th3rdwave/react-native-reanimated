@@ -1,0 +1,103 @@
+def localProps = new Properties()
+def localPropertiesFile = file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProps.load(new InputStreamReader(new FileInputStream(localPropertiesFile), "UTF-8"))
+}
+def debugNativeLibraries = localProps.getProperty('NATIVE_DEBUG_ON', 'FALSE').toBoolean()
+
+def nativeArchitectures = project.getProperties().get("reactNativeDebugArchitectures")
+
+buildscript {
+    repositories {
+        jcenter()
+        google()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath('com.android.tools.build:gradle:4.1.2')
+        classpath("de.undercouch:gradle-download-task:4.0.4")
+    }
+}
+
+
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+def reactAndroidProjectDir = project(':ReactAndroid').projectDir;
+def reactAndroidBuildDir = project(':ReactAndroid').buildDir;
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'de.undercouch.download'
+
+android {
+    compileSdkVersion safeExtGet('compileSdkVersion', 29)
+    buildToolsVersion safeExtGet('buildToolsVersion', '29.0.2')
+    defaultConfig {
+
+        minSdkVersion safeExtGet('minSdkVersion', 16)
+        targetSdkVersion safeExtGet('targetSdkVersion', 29)
+        versionCode 1
+        versionName "1.0"
+        buildConfigField("boolean", "IS_INTERNAL_BUILD", "false")
+        buildConfigField("int", "EXOPACKAGE_FLAGS", "0")
+
+        externalNativeBuild {
+            ndkBuild {
+                arguments "NDK_APPLICATION_MK=$projectDir/src/main/JNI/Application.mk",
+                        "PROJECT_BUILD_DIR=$buildDir",
+                        "REACT_ANDROID_DIR=$reactAndroidProjectDir",
+                        "REACT_ANDROID_BUILD_DIR=$reactAndroidBuildDir"
+                targets "reanimated"
+            }
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        debug {
+            if (nativeArchitectures) {
+                ndk {
+                    abiFilters nativeArchitectures.split(',')
+                }
+            }
+        }
+    }
+
+    externalNativeBuild {
+        ndkBuild {
+            path "$projectDir/src/main/JNI/Android.mk"
+        }
+    }
+}
+
+afterEvaluate {
+    preBuild.dependsOn(":ReactAndroid:packageReactNdkLibs")
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        url "$rootDir/../node_modules/react-native/android"
+    }
+    maven {
+        // Android JSC is installed from npm
+        url "$rootDir/../node_modules/jsc-android/dist"
+    }
+    google()
+    jcenter()
+}
+
+dependencies {
+    //noinspection GradleDynamicVersion
+    implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation "androidx.transition:transition:1.1.0"
+    api("com.facebook.fbjni:fbjni-java-only:0.0.3")
+}
+
