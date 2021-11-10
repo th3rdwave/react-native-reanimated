@@ -135,14 +135,6 @@ std::shared_ptr<NativeReanimatedModule> createReanimatedModule(
   std::shared_ptr<ErrorHandler> errorHandler = std::make_shared<REAIOSErrorHandler>(scheduler);
   std::shared_ptr<NativeReanimatedModule> module;
 
-  __block std::weak_ptr<Scheduler> weakScheduler = scheduler;
-  ((REAUIManager *)uiManager).flushUiOperations = ^void() {
-    std::shared_ptr<Scheduler> scheduler = weakScheduler.lock();
-    if (scheduler != nullptr) {
-      scheduler->triggerUI();
-    }
-  };
-
   auto requestRender = [reanimatedModule, &module](std::function<void(double)> onRender, jsi::Runtime &rt) {
     [reanimatedModule.nodesManager postOnAnimation:^(CADisplayLink *displayLink) {
       double frameTimestamp = displayLink.targetTimestamp * 1000;
@@ -159,10 +151,8 @@ std::shared_ptr<NativeReanimatedModule> createReanimatedModule(
   };
 
   // Layout Animations start
-  REAUIManager *reaUiManagerNoCast = [bridge moduleForClass:[REAUIManager class]];
-  RCTUIManager *reaUiManager = reaUiManagerNoCast;
+  RCTUIManager *reaUiManager = [bridge moduleForClass:[RCTUIManager class]];
   REAAnimationsManager *animationsManager = [[REAAnimationsManager alloc] initWithUIManager:reaUiManager];
-  [reaUiManagerNoCast setUp:animationsManager];
 
   auto notifyAboutProgress = [=](int tag, jsi::Object newStyle) {
     if (animationsManager) {
@@ -177,7 +167,8 @@ std::shared_ptr<NativeReanimatedModule> createReanimatedModule(
     }
   };
 
-  std::shared_ptr<LayoutAnimationsProxy> layoutAnimationsProxy = std::make_shared<LayoutAnimationsProxy>(notifyAboutProgress, notifyAboutEnd);
+  std::shared_ptr<LayoutAnimationsProxy> layoutAnimationsProxy =
+      std::make_shared<LayoutAnimationsProxy>(notifyAboutProgress, notifyAboutEnd);
   std::weak_ptr<jsi::Runtime> wrt = animatedRuntime;
   [animationsManager setAnimationStartingBlock:^(
                          NSNumber *_Nonnull tag, NSString *type, NSDictionary *_Nonnull values, NSNumber *depth) {
@@ -191,7 +182,8 @@ std::shared_ptr<NativeReanimatedModule> createReanimatedModule(
       yogaValues.setProperty(*rt, [key UTF8String], [value doubleValue]);
     }
 
-    jsi::Value layoutAnimationRepositoryAsValue = rt->global().getPropertyAsObject(*rt, "global").getProperty(*rt, "LayoutAnimationRepository");
+    jsi::Value layoutAnimationRepositoryAsValue =
+        rt->global().getPropertyAsObject(*rt, "global").getProperty(*rt, "LayoutAnimationRepository");
     if (!layoutAnimationRepositoryAsValue.isUndefined()) {
       jsi::Function startAnimationForTag =
           layoutAnimationRepositoryAsValue.getObject(*rt).getPropertyAsFunction(*rt, "startAnimationForTag");
@@ -204,8 +196,7 @@ std::shared_ptr<NativeReanimatedModule> createReanimatedModule(
     }
   }];
 
-
-  [animationsManager setRemovingConfigBlock:^(NSNumber* _Nonnull tag) {
+  [animationsManager setRemovingConfigBlock:^(NSNumber *_Nonnull tag) {
     std::shared_ptr<jsi::Runtime> rt = wrt.lock();
     if (wrt.expired()) {
       return;
