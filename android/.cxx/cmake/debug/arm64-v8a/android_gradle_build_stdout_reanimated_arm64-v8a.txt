@@ -1,0 +1,9 @@
+ninja: Entering directory `/Users/janicduplessis/Developer/react-native-reanimated/android/.cxx/cmake/debug/arm64-v8a'
+[1/8] Building CXX object CMakeFiles/reanimated.dir/src/main/cpp/AndroidErrorHandler.cpp.o
+[2/8] Building CXX object CMakeFiles/reanimated.dir/src/main/cpp/AndroidScheduler.cpp.o
+[3/8] Building CXX object CMakeFiles/reanimated.dir/src/main/cpp/JNIHelper.cpp.o
+[4/8] Building CXX object CMakeFiles/reanimated.dir/src/main/cpp/LayoutAnimations.cpp.o
+[5/8] Building CXX object CMakeFiles/reanimated.dir/src/main/cpp/OnLoad.cpp.o
+[6/8] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/Tools/JSIStoreValueUser.cpp.o
+[7/8] Building CXX object CMakeFiles/reanimated.dir/src/main/cpp/NativeProxy.cpp.o
+[8/8] Linking CXX shared library ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libreanimated.so

@@ -1,0 +1,27 @@
+# ninja log v5
+1	679	1642438387	CMakeFiles/reanimated.dir/src/main/Common/cpp/NativeModules/NativeReanimatedModuleSpec.cpp.o	1f8f9d52fba30fea
+680	881	1642438388	CMakeFiles/reanimated.dir/src/main/cpp/AndroidLogger.cpp.o	e8c80f786bb2676f
+2	997	1642438388	CMakeFiles/reanimated.dir/src/main/Common/cpp/SharedItems/MutableValueSetterProxy.cpp.o	8a81ae3cdee45731
+3	1005	1642438388	CMakeFiles/reanimated.dir/src/main/Common/cpp/Registries/EventHandlerRegistry.cpp.o	4dae03768187c00e
+2	1047	1642438388	CMakeFiles/reanimated.dir/src/main/Common/cpp/SharedItems/RemoteObject.cpp.o	ca15aad9003556b3
+1	1174	1642438388	CMakeFiles/reanimated.dir/src/main/Common/cpp/SharedItems/FrozenObject.cpp.o	3eb21be3d8b072a0
+4	1285	1642438388	CMakeFiles/reanimated.dir/src/main/Common/cpp/Registries/WorkletsCache.cpp.o	a74328725ddc58e9
+2	1500	1642438388	CMakeFiles/reanimated.dir/src/main/Common/cpp/SharedItems/MutableValue.cpp.o	b2d69a81c4510478
+3	1588	1642438388	CMakeFiles/reanimated.dir/src/main/Common/cpp/Registries/MapperRegistry.cpp.o	52e7f4474a9e6ce0
+1285	1802	1642438389	CMakeFiles/reanimated.dir/src/main/cpp/TurboModule.cpp.o	c9534767e8bbdc92
+1174	2122	1642438389	CMakeFiles/reanimated.dir/src/main/Common/cpp/LayoutAnimations/LayoutAnimationsProxy.cpp.o	781ebbd58f0be3a4
+3	2314	1642438389	CMakeFiles/reanimated.dir/src/main/Common/cpp/SharedItems/ShareableValue.cpp.o	9da3ef033cea3d38
+4	2462	1642438389	CMakeFiles/reanimated.dir/src/main/cpp/AndroidErrorHandler.cpp.o	a550053ba02b1823
+1588	2514	1642438389	CMakeFiles/reanimated.dir/src/main/Common/cpp/Tools/Mapper.cpp.o	4d118c39c2dcc0a2
+1	2517	1642438389	CMakeFiles/reanimated.dir/src/main/Common/cpp/NativeModules/NativeReanimatedModule.cpp.o	cf09b37ef001e436
+1	2557	1642438389	CMakeFiles/reanimated.dir/src/main/cpp/JNIHelper.cpp.o	262e245014abeec4
+2122	2608	1642438389	CMakeFiles/reanimated.dir/src/main/Common/cpp/Tools/Scheduler.cpp.o	85dc20326d80a6d2
+2314	2656	1642438389	CMakeFiles/reanimated.dir/src/main/Common/cpp/Tools/WorkletEventHandler.cpp.o	6e903914793b3af9
+2462	2743	1642438390	CMakeFiles/reanimated.dir/src/main/Common/cpp/Tools/FeaturesConfig.cpp.o	b527afbc8afe4830
+881	2899	1642438390	CMakeFiles/reanimated.dir/src/main/cpp/AndroidScheduler.cpp.o	6e68a53f71549a37
+1005	3005	1642438390	CMakeFiles/reanimated.dir/src/main/cpp/LayoutAnimations.cpp.o	40477e43eac58170
+997	3132	1642438390	CMakeFiles/reanimated.dir/src/main/cpp/OnLoad.cpp.o	7d990c8b1e6fd63e
+1802	3454	1642438390	CMakeFiles/reanimated.dir/src/main/Common/cpp/Tools/RuntimeDecorator.cpp.o	ff416aa711975ba3
+1500	3520	1642438390	CMakeFiles/reanimated.dir/src/main/Common/cpp/Tools/JSIStoreValueUser.cpp.o	3df56372a9fab1bf
+1047	4150	1642438391	CMakeFiles/reanimated.dir/src/main/cpp/NativeProxy.cpp.o	b29850b078bd241b
+4150	4330	1642438391	../../../../build/intermediates/cmake/debug/obj/x86_64/libreanimated.so	552e96f504c24e52

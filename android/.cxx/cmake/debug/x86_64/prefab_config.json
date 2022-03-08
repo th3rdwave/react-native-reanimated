@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "prefabPath": "/Users/janicduplessis/.gradle/caches/modules-2/files-2.1/com.google.prefab/cli/1.1.1/14bf8c448be4794ff2454576d538c7e3e0da91c9/cli-1.1.1-all.jar",
+  "packages": [
+    "/Users/janicduplessis/.gradle/caches/transforms-3/23bc21dceb362f27420b5a72405e1d07/transformed/jetified-fbjni-0.2.2/prefab"
+  ]
+}

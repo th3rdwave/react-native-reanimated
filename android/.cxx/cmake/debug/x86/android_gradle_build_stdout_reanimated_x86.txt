@@ -1,0 +1,27 @@
+ninja: Entering directory `/Users/janicduplessis/Developer/react-native-reanimated/android/.cxx/cmake/debug/x86'
+[1/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/NativeModules/NativeReanimatedModuleSpec.cpp.o
+[2/26] Building CXX object CMakeFiles/reanimated.dir/src/main/cpp/AndroidLogger.cpp.o
+[3/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/SharedItems/MutableValueSetterProxy.cpp.o
+[4/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/Registries/EventHandlerRegistry.cpp.o
+[5/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/SharedItems/RemoteObject.cpp.o
+[6/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/SharedItems/FrozenObject.cpp.o
+[7/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/Registries/WorkletsCache.cpp.o
+[8/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/SharedItems/MutableValue.cpp.o
+[9/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/Registries/MapperRegistry.cpp.o
+[10/26] Building CXX object CMakeFiles/reanimated.dir/src/main/cpp/TurboModule.cpp.o
+[11/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/LayoutAnimations/LayoutAnimationsProxy.cpp.o
+[12/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/SharedItems/ShareableValue.cpp.o
+[13/26] Building CXX object CMakeFiles/reanimated.dir/src/main/cpp/JNIHelper.cpp.o
+[14/26] Building CXX object CMakeFiles/reanimated.dir/src/main/cpp/AndroidErrorHandler.cpp.o
+[15/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/Tools/Mapper.cpp.o
+[16/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/Tools/Scheduler.cpp.o
+[17/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/NativeModules/NativeReanimatedModule.cpp.o
+[18/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/Tools/WorkletEventHandler.cpp.o
+[19/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/Tools/FeaturesConfig.cpp.o
+[20/26] Building CXX object CMakeFiles/reanimated.dir/src/main/cpp/AndroidScheduler.cpp.o
+[21/26] Building CXX object CMakeFiles/reanimated.dir/src/main/cpp/LayoutAnimations.cpp.o
+[22/26] Building CXX object CMakeFiles/reanimated.dir/src/main/cpp/OnLoad.cpp.o
+[23/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/Tools/JSIStoreValueUser.cpp.o
+[24/26] Building CXX object CMakeFiles/reanimated.dir/src/main/Common/cpp/Tools/RuntimeDecorator.cpp.o
+[25/26] Building CXX object CMakeFiles/reanimated.dir/src/main/cpp/NativeProxy.cpp.o
+[26/26] Linking CXX shared library ../../../../build/intermediates/cmake/debug/obj/x86/libreanimated.so

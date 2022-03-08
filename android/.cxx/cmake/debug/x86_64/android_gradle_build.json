@@ -1,0 +1,42 @@
+{
+  "stringTable": {},
+  "buildFiles": [
+    "/Users/janicduplessis/Developer/react-native-reanimated/android/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/janicduplessis/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+      "-C",
+      "/Users/janicduplessis/Developer/react-native-reanimated/android/.cxx/cmake/debug/x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/janicduplessis/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+    "-C",
+    "/Users/janicduplessis/Developer/react-native-reanimated/android/.cxx/cmake/debug/x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "reanimated-Debug-x86_64": {
+      "buildCommandComponents": [
+        "/Users/janicduplessis/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+        "-C",
+        "/Users/janicduplessis/Developer/react-native-reanimated/android/.cxx/cmake/debug/x86_64",
+        "reanimated"
+      ],
+      "buildType": "debug",
+      "abi": "x86_64",
+      "artifactName": "reanimated",
+      "output": "/Users/janicduplessis/Developer/react-native-reanimated/android/build/intermediates/cmake/debug/obj/x86_64/libreanimated.so",
+      "runtimeFiles": [
+        "/Users/janicduplessis/.gradle/caches/transforms-3/23bc21dceb362f27420b5a72405e1d07/transformed/jetified-fbjni-0.2.2/prefab/modules/fbjni/libs/android.x86_64/libfbjni.so"
+      ]
+    }
+  },
+  "toolchains": {},
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

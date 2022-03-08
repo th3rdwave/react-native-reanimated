@@ -1,0 +1,3 @@
+/Users/janicduplessis/Developer/react-native-reanimated/android/.cxx/cmake/debug/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/janicduplessis/Developer/react-native-reanimated/android/.cxx/cmake/debug/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/janicduplessis/Developer/react-native-reanimated/android/.cxx/cmake/debug/arm64-v8a/CMakeFiles/reanimated.dir

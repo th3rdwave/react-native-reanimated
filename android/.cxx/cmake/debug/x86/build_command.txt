@@ -1,0 +1,31 @@
+                    Executable : /Users/janicduplessis/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake
+arguments : 
+-H/Users/janicduplessis/Developer/react-native-reanimated/android
+-DCMAKE_CXX_FLAGS=-fstack-protector-all
+-DCMAKE_BUILD_TYPE=Debug
+-DCMAKE_TOOLCHAIN_FILE=/Users/janicduplessis/Library/Android/sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake
+-DANDROID_ABI=x86
+-DANDROID_NDK=/Users/janicduplessis/Library/Android/sdk/ndk/21.4.7075529
+-DANDROID_PLATFORM=android-21
+-DCMAKE_ANDROID_ARCH_ABI=x86
+-DCMAKE_ANDROID_NDK=/Users/janicduplessis/Library/Android/sdk/ndk/21.4.7075529
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/janicduplessis/Developer/react-native-reanimated/android/build/intermediates/cmake/debug/obj/x86
+-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/janicduplessis/Developer/react-native-reanimated/android/build/intermediates/cmake/debug/obj/x86
+-DCMAKE_MAKE_PROGRAM=/Users/janicduplessis/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_SYSTEM_VERSION=21
+-DCMAKE_FIND_ROOT_PATH=/Users/janicduplessis/Developer/react-native-reanimated/android/.cxx/cmake/debug/prefab/x86/prefab
+-DANDROID_STL=c++_shared
+-DNATIVE_DEBUG=false
+-DREACT_NATIVE_TARGET_VERSION=67
+-DANDROID_TOOLCHAIN=clang
+-DBOOST_VERSION=1_63_0
+-DFOR_HERMES=true
+-B/Users/janicduplessis/Developer/react-native-reanimated/android/.cxx/cmake/debug/x86
+-GNinja
+jvmArgs : 
+
+
+                    Build command args: []
+                    Version: 1
