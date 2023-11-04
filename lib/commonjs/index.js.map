@@ -1,0 +1,1 @@
+{"version":3,"names":[],"sources":["index.ts"],"sourcesContent":["// tree-shaken side effects\nimport './reanimated2/js-reanimated/global';\n\nexport * from './reanimated2';\nexport * as default from './Animated';\n"],"mappings":";;;;;;;;AACA;;AAEA;;AAAA;EAAA;EAAA;EAAA;EAAA;IAAA;IAAA;MAAA;IAAA;EAAA;AAAA"}

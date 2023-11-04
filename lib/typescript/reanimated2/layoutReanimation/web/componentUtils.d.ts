@@ -1,0 +1,10 @@
+import type { TransformsStyle } from 'react-native';
+import type { AnimationConfig, AnimationNames, CustomConfig } from './config';
+import type { TransitionData } from './animationParser';
+import type { StyleProps } from '../../commonTypes';
+export declare function extractTransformFromStyle(style: StyleProps): any;
+export declare function getProcessedConfig(animationName: string, config: CustomConfig, isLayoutTransition: boolean, initialAnimationName: AnimationNames): AnimationConfig;
+export declare function makeElementVisible(element: HTMLElement): void;
+export declare function handleEnteringAnimation(element: HTMLElement, animationConfig: AnimationConfig): void;
+export declare function handleLayoutTransition(element: HTMLElement, animationConfig: AnimationConfig, transitionData: TransitionData, existingTransform: TransformsStyle['transform'] | undefined): void;
+export declare function handleExitingAnimation(element: HTMLElement, animationConfig: AnimationConfig): void;

@@ -1,0 +1,1 @@
+{"version":3,"names":["createAnimatedComponent"],"sources":["index.ts"],"sourcesContent":["export { createAnimatedComponent } from './createAnimatedComponent';\n"],"mappings":"AAAA,SAASA,uBAAuB,QAAQ,2BAA2B"}
